@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="logo@2xe.png">
+    <title>Epsilon Aerospace - Employee Feedback</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .ep-wrapper {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f4f6fc;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .ep-feedback {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .ep-feedback h1 {
+            color: #3150A0;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .ep-feedback h2 {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .ep-form-group {
+            margin-bottom: 16px;
+        }
+
+        .ep-form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #444;
+        }
+
+        .ep-input,
+        .ep-textarea,
+        .ep-date {
+            width: 90%;
+            padding: 10px 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .ep-input:focus,
+        .ep-textarea:focus,
+        .ep-date:focus {
+            border-color: #3150A0;
+            outline: none;
+        }
+
+        .ep-textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .ep-note {
+            font-size: 13px;
+            color: #777;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        .ep-button {
+            background-color: #3150A0;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .ep-button:hover {
+            background-color: #273f80;
+        }
+
+        @media (max-width: 600px) {
+            .ep-feedback {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <!-- Top Ribbon -->
+    <div class="top-ribbon">
+        <div class="social-icons">
+            <a href="https://www.linkedin.com/company/epsilon-aerospace-pvt-ltd"><img src="icons8-linkedin-2-50.png"
+                    alt="LinkedIn"></a>
+            <a href="https://x.com/EpsilonAero1"><img src="icons8-twitter-bird-50.png" alt="Twitter"></a>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="logo@2x.png" alt="Epsilon Aerospace">
+        </div>
+
+        <!-- Desktop Nav -->
+        <nav class="navbar">
+            <a href="index.html">HOME</a>
+            <a href="https://www.epsilon-aero.com/profile.html">ABOUT US</a>
+            <a href="https://www.epsilon-aero.com/services-design.html">SERVICES</a>
+            <a href="https://www.epsilon-aero.com/projects-types.html">PROJECTS</a>
+            <a href="https://www.epsilon-aero.com/media-news.html">MEDIA</a>
+            <a href="https://www.epsilon-aero.com/contact-us.html">CONTACT US</a>
+        </nav>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="https://www.epsilon-aero.com/">HOME</a>
+        <a href="https://www.epsilon-aero.com/profile.html">ABOUT US</a>
+        <a href="https://www.epsilon-aero.com/services-design.html">SERVICES</a>
+        <a href="https://www.epsilon-aero.com/projects-types.html">PROJECTS</a>
+        <a href="https://www.epsilon-aero.com/media-news.html">MEDIA</a>
+        <a href="https://www.epsilon-aero.com/contact-us.html">CONTACT US</a>
+    </div>
+    <section class="ep-wrapper">
+        <form class="ep-feedback" action="https://formcarry.com/s/ZH09f-JwtvZ" method="POST"
+            onsubmit="handleRedirect(event)">
+            <h1>📝 Epsilon Aerospace Employee Feedback</h1>
+            <h2>🎯 Section 1: About You</h2>
+
+            <div class="ep-form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" class="ep-input" placeholder="Enter your full name">
+            </div>
+
+            <div class="ep-form-group">
+                <label for="designation">Designation / Role</label>
+                <input type="text" id="designation" name="designation" class="ep-input" placeholder="Your designation">
+            </div>
+
+            <div class="ep-form-group">
+                <label for="department">Department / Team</label>
+                <input type="text" id="department" name="department" class="ep-input"
+                    placeholder="Your department or team">
+            </div>
+
+            <div class="ep-form-group">
+                <label for="doj">Date of Joining</label>
+                <input type="date" id="doj" name="doj" class="ep-date">
+            </div>
+
+            <div class="ep-form-group">
+                <label for="source">How did you hear about Epsilon Aerospace?</label>
+                <textarea id="source" name="source" class="ep-textarea"
+                    placeholder="E.g., Job portal, referral, college drive, etc."></textarea>
+            </div>
+
+            <button type="submit" class="ep-button">Continue</button>
+        </form>
+    </section>
+
+
+    <footer class="footer-container">
+        <div class="footer-column footer-col-1">
+            <img src="logo@2x.png" alt="Epsilon Logo" class="footer-logo">
+            <p>
+                Epsilon Aerospace specializes in customized refurbishment of aircraft interiors. Our dedicated team has
+                commendable skills and global experience in aircraft cabin interior works.
+            </p>
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/company/epsilon-aerospace-pvt-ltd" target="_blank">
+                    <img src="icons8-linkedin-2-50.png" alt="LinkedIn" class="social-icon">
+                </a>
+                <a href="https://x.com/EpsilonAero1" target="_blank">
+                    <img src="icons8-twitter-bird-50.png" alt="Twitter" class="social-icon">
+                </a>
+            </div>
+
+        </div>
+
+        <div class="footer-column footer-col-divider">
+            <h4>ABOUT US</h4>
+            <ul>
+                <li><a href="https://www.epsilon-aero.com/profile.html">Company Profile</a></li>
+                <li><a href="https://www.epsilon-aero.com/core-values.html">Core Values</a></li>
+                <li><a href="https://www.epsilon-aero.com/certifications.html">Certifications</a></li>
+                <li><a href="https://www.epsilon-aero.com/#">Testimonials</a></li>
+                <li><a href="https://www.epsilon-aero.com/careers.php">Careers</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column footer-col-divider">
+            <h4>OUR SERVICES</h4>
+            <ul>
+                <li><a href="https://www.epsilon-aero.com/services-production-seat-covers.html">Production</a></li>
+                <li><a href="https://www.epsilon-aero.com/services-design.html">Design</a></li>
+                <li><a
+                        href="https://www.epsilon-aero.com/services-maintenance-repairs-of-cabin-polycarbonate.html">Maintenance</a>
+                </li>
+                <li><a href="https://www.epsilon-aero.com/other-services.html">Other Services</a></li>
+            </ul>
+            <h4>INVESTORS</h4>
+        </div>
+
+        <div class="footer-column footer-col-divider">
+            <h4>CONTACT INFO</h4>
+            <p>
+                EPSILON AEROSPACE<br>
+                2nd Floor, Upadrastha House, 48,<br>
+                Dr. VB Gandhi Marg, Kala Ghoda,<br>
+                Fort, Mumbai - 400 023.<br><br>
+                Email: <a href="mailto:sales@epsilon-aero.com">sales@epsilon-aero.com</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("mobileMenu").classList.toggle("show");
+        }
+
+        function handleRedirect(event) {
+            event.preventDefault(); // Prevent default form submission
+            const form = event.target;
+
+            // Create a FormData object and send it via fetch
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = "feedbackform-1.html"; // <- Change this to your destination page
+                    } else {
+                        alert("There was an error submitting the form. Please try again.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Form submission error:", error);
+                    alert("Something went wrong. Please try again later.");
+                });
+        }
+
+    </script>
+</body>
+
+</html>
