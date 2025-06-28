@@ -397,6 +397,12 @@
         let firstAttempt = null;
         let isRetry = false;
 
+        function togglePassword() {
+            const passwordInput = document.getElementById("password");
+            passwordInput.type =
+                passwordInput.type === "password" ? "text" : "password";
+        }
+        
         document.getElementById("loginForm").addEventListener("submit", async function (e) {
             e.preventDefault();
 
